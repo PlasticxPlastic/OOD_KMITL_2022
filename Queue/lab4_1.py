@@ -16,13 +16,14 @@ class Queue:
 
     def size(self):
         return len(self.items)
+
     def front(self):
         return self.items[0]
 
 
 ip = [e for e in input("Enter Input : ").split(',')]
 
-q = Queue()
+q = Queue([1, 2, 3])
 for i in range(len(ip)):
     if len(ip[i]) != 1:
         value, dq = ip[i].split()
@@ -30,7 +31,7 @@ for i in range(len(ip)):
         value = ip[i]
     if value == 'E':
         q.enqueue(dq)
-        print("Add %d index is %d"%(int(dq), len(q.items)-1))
+        print("Add %d index is %d" % (int(dq), len(q.items) - 1))
     elif value == 'D':
         if not q.isEmpty():
             dq = q.front()
@@ -42,5 +43,5 @@ for i in range(len(ip)):
 if q.isEmpty():
     print("Empty")
 else:
-    print("Number in Queue is :  ",end="")
+    print("Number in Queue is :  ", end="")
     print(q.items)
